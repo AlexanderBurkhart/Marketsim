@@ -28,8 +28,8 @@ def compute_portvals(orders_file = "./orders/orders.csv", start_val = 1000000, c
             val += p
         val -= 2*commission + 2*p*impact
         df_port = df_port.append({'Date': act['Date'], 'Value': val}, ignore_index=True)
-    
     df_port = df_port.set_index('Date')
+    
     return df_port
 
 
