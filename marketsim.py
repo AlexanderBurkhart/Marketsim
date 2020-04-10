@@ -5,7 +5,7 @@ import datetime as dt
 import os
 from util import get_data, plot_data, calc_stats
 
-def compute_portvals(orders_file = "./orders/orders.csv", start_val = 1000000, commission=9.95, impact=0.005, syms=None):
+def compute_portvals(orders_file = "./orders/orders.csv", start_val = 1000000, commission=9.95, impact=0.005):
     # this is the function the autograder will call to test your code
     # NOTE: orders_file may be a string, or it may be a file object. Your
     # code should work correctly with either input
@@ -35,13 +35,11 @@ def test_code():
     # this is a helper function you can use to test your code
     # note that during autograding his function will not be called.
     # Define input parameters
-    syms = ['AAPL', 'BAC', 'GLD', 'GOOG', 'IBM', 'XOM']
-
     of = "orders/orders-01.csv"
     sv = 1000000
 
     # Process orders 	 		 			  		  			
-    portvals = compute_portvals(orders_file = of, start_val = sv, syms=syms)
+    portvals = compute_portvals(orders_file = of, start_val = sv)
     # Get portfolio stats
     # Here we just fake the data. you should use your code from previous assignments.
     start_date = portvals.index[0]
