@@ -11,11 +11,13 @@ def compute_portvals(orders_file = "./orders/orders.csv", start_val = 1000000, c
     # code should work correctly with either input
     # TODO: Your code here
     df_orders = pd.read_csv(orders_file)
+    
     syms = []
     for sym in df_orders['Symbol']:
         if sym not in syms:
             syms.append(sym)
     prices_all = get_data(syms, pd.date_range(df_orders['Date'].iloc[0], df_orders['Date'].iloc[-1]))
+    
     df_port = pd.DataFrame(columns=['Date', 'Value'])
     val = start_val
     for idx, act in df_orders.iterrows():
